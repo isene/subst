@@ -5,17 +5,17 @@
 
 subst is a script that renames files (much like the script called \"rename\", except it also matches files by a regexp). You have to be in the directory where you want to rename files.
   
-**SYNOPSIS:**
+**SYNOPSIS:**<br>
     subst [ -h ] [ -v ] [ -f ] [ FILES ] MATCH SUBSTITUTION
 
-**OPTIONS:**
+**OPTIONS:**<br>
     Use -h for help.
     Use -v for verbose output.
     Use -f to force overwriting of files 
 	(note that this option can overwrite renamed
 	files by files that are later renamed)
 
-**MATCHES:**
+**MATCHES:**<br>
     FILES is the regexp that matches the filenames to be renamed.
 	If you skip this option, it matches all the files in the
 	directory (same as using the regexp /.*/).
