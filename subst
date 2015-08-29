@@ -1,0 +1,86 @@
+#!/usr/bin/ruby
+
+if ARGV.include?( "-h" ) or ARGV.length == 0
+    puts <<HELPTEXT
+  
+  GENERAL:
+  
+    subst is a script that renames files (much like the script called
+    \"rename\", except it also matches files by a regexp). You have to
+    be in the directory where you want to rename files.
+    
+  SYNOPSIS:
+  
+    subst [ -h ] [ -v ] [ -f ] [ FILES ] MATCH SUBSTITUTION
+  
+  OPTIONS:
+  
+    Use -h for help.
+    Use -v for verbose output.
+    Use -f to force overwriting of files (note that this option can
+           overwrite renamed files by files that are later renamed.
+  
+  MATCHES:
+  
+    FILES is the regexp that matches the filenames to be renamed.
+          If you skip this option, it matches all the files in the
+          directory (same as using the regexp /.*/).
+    MATCH is the regexp that matches within the filename.
+    SUBSTITUTION is the regexp used for substituting the match.
+
+  COPYRIGHT:
+        
+    Copyright 2003, Geir Isene (www.geir.isene.com)
+    This program is released under the GNU General Public lisence v2
+    For the full lisence text see: http://www.gnu.org/copyleft/gpl.html
+
+HELPTEXT
+    abort
+end
+    
+if ARGV.include?( "-v" )
+    verbose = true
+    ARGV.delete( "-v" )
+end
+
+if ARGV.include?( "-f" )
+    force = true
+    ARGV.delete( "-f" )
+end
+
+unless ( 2..3 ) === ARGV.length
+    puts "\nimproper number of arguments. See helpfile (subst -h) for
+details.\n\n"
+    abort
+end
+
+ARGV.unshift( ".*" ) if ARGV.length ==  2
+
+files = Regexp::new( ARGV[0] )
+oldname = Regexp::new( ARGV[1] )
+newname = Regexp::new( ARGV[2] )
+
+d = Dir::new( "." )
+d.each do |file|
+    next if file == "." or file == ".."
+    if files.match( file ) and oldname.match( file )
+        f = File::new( file )
+        newfile = file.sub( oldname, newname.source )
+        if FileTest.exist?( newfile ) and !force
+            newfile = newfile + ".s1"
+            while FileTest.exist?( newfile )
+                if /.*s\d+$/.match( newfile )
+                    tmp = newfile.sub( /.*s(\d+)$/, '\1' )
+                    tmp = tmp.to_i + 1
+                    newfile.sub!( /\d+$/, tmp.to_s )
+                end
+            end
+        end
+        begin
+            File.rename( file, newfile )
+            puts file + " => " + newfile if verbose == true
+        rescue
+            puts "Error renaming file \"#{file}}\""
+        end
+    end
+end
