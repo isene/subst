@@ -24,3 +24,6 @@ subst is a script that renames files (much like the script called \"rename\", ex
 	directory (same as using the regexp /.*/).
     MATCH is the regexp that matches within the filename.
     SUBSTITUTION is the regexp used for substituting the match.
+
+## License
+This software is released into the Public Domain.
