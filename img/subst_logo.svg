@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="150" height="150" viewBox="0 0 150 150" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect x="0" y="0" width="150" height="150" fill="#1a1f2e"/>
+  
+  <!-- Text document -->
+  <rect x="25" y="30" width="100" height="80" rx="3" fill="#f7fafc" stroke="#cbd5e0" stroke-width="2"/>
+  
+  <!-- Original text with highlights -->
+  <g font-family="monospace" font-size="6">
+    <text x="30" y="45" fill="#374151">The quick brown</text>
+    <rect x="94" y="38" width="20" height="8" fill="#fbbf24" opacity="0.5">
+      <animate attributeName="opacity" values="0.5;0.8;0.5" dur="2s" repeatCount="indefinite"/>
+    </rect>
+    <text x="95" y="45" fill="#374151" font-weight="bold">fox</text>
+    
+    <text x="30" y="55" fill="#374151">jumps over the</text>
+    
+    <text x="30" y="65" fill="#374151">lazy</text>
+    <rect x="49" y="58" width="20" height="8" fill="#fbbf24" opacity="0.5">
+      <animate attributeName="opacity" values="0.5;0.8;0.5" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+    </rect>
+    <text x="50" y="65" fill="#374151" font-weight="bold">dog</text>
+    
+    <text x="30" y="75" fill="#374151">The</text>
+    <rect x="47" y="68" width="20" height="8" fill="#fbbf24" opacity="0.5">
+      <animate attributeName="opacity" values="0.5;0.8;0.5" dur="2s" begin="1s" repeatCount="indefinite"/>
+    </rect>
+    <text x="48" y="75" fill="#374151" font-weight="bold">fox</text>
+    <text x="68" y="75" fill="#374151">is fast</text>
+    
+    <text x="30" y="85" fill="#374151">and the</text>
+    <rect x="64" y="78" width="20" height="8" fill="#fbbf24" opacity="0.5">
+      <animate attributeName="opacity" values="0.5;0.8;0.5" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+    </rect>
+    <text x="65" y="85" fill="#374151" font-weight="bold">dog</text>
+    <text x="85" y="85" fill="#374151">is</text>
+    
+    <text x="30" y="95" fill="#374151">sleeping.</text>
+  </g>
+  
+  <!-- Find and Replace boxes -->
+  <g transform="translate(75, 20)">
+    <!-- Find box -->
+    <rect x="-45" y="0" width="40" height="10" fill="#3b82f6" stroke="#2563eb" stroke-width="1" rx="1"/>
+    <text x="-25" y="7" font-family="monospace" font-size="5" fill="#fff" text-anchor="middle">Find: fox</text>
+    
+    <!-- Replace box -->
+    <rect x="5" y="0" width="40" height="10" fill="#10b981" stroke="#059669" stroke-width="1" rx="1"/>
+    <text x="25" y="7" font-family="monospace" font-size="5" fill="#fff" text-anchor="middle">→ cat</text>
+  </g>
+  
+  <!-- Transformation arrows -->
+  <g opacity="0.8">
+    <path d="M 95,48 Q 85,55 95,72" stroke="#60a5fa" stroke-width="1.5" fill="none" stroke-dasharray="3,2">
+      <animate attributeName="stroke-dashoffset" values="0;-5" dur="1s" repeatCount="indefinite"/>
+    </path>
+    <path d="M 50,68 Q 60,75 65,82" stroke="#60a5fa" stroke-width="1.5" fill="none" stroke-dasharray="3,2">
+      <animate attributeName="stroke-dashoffset" values="0;-5" dur="1s" begin="0.5s" repeatCount="indefinite"/>
+    </path>
+  </g>
+  
+  <!-- Replacement indicators -->
+  <g font-family="monospace" font-size="4" fill="#10b981" opacity="0">
+    <text x="96" y="50">cat
+      <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite"/>
+    </text>
+    <text x="51" y="70">cat
+      <animate attributeName="opacity" values="0;1;0" dur="2s" begin="0.5s" repeatCount="indefinite"/>
+    </text>
+    <text x="49" y="80">cat
+      <animate attributeName="opacity" values="0;1;0" dur="2s" begin="1s" repeatCount="indefinite"/>
+    </text>
+    <text x="66" y="90">cat
+      <animate attributeName="opacity" values="0;1;0" dur="2s" begin="1.5s" repeatCount="indefinite"/>
+    </text>
+  </g>
+  
+  <!-- Command line -->
+  <g transform="translate(75, 120)">
+    <rect x="-50" y="0" width="100" height="12" fill="#1e293b" stroke="#334155" stroke-width="1" rx="1"/>
+    <text x="0" y="8" font-family="monospace" font-size="5" fill="#00ff00" text-anchor="middle">$ subst fox cat file.txt</text>
+  </g>
+  
+  <!-- Text -->
+  <text x="75" y="138" font-family="monospace" font-size="12" fill="#fff" text-anchor="middle" font-weight="bold">subst</text>
+  <text x="75" y="147" font-family="monospace" font-size="7" fill="#94a3b8" text-anchor="middle">Text Substitution Tool</text>
+</svg>

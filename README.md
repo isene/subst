@@ -1,3 +1,5 @@
+<img src="img/subst_logo.svg" align="left" width="150" height="150" alt="subst Logo">
+
 # subst
 
 [![License](https://img.shields.io/badge/License-Public%20Domain-brightgreen.svg)](https://unlicense.org/)
