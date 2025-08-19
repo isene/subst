@@ -5,6 +5,7 @@
 [![Stay Amazing](https://img.shields.io/badge/Stay-Amazing-blue.svg)](https://isene.org)
 
 <img src="img/subst_logo.svg" align="left" width="150" height="150" alt="subst Logo">
+<br clear="left"/>
 
 ## Renames files matched by regexp
 
